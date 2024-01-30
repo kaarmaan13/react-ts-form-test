@@ -12,6 +12,8 @@ Tener instalado npm.
 
 [✔️] Cuando se hace click en el botón, el texto en el campo de entrada debe agregarse a continuación en una lista de elementos.
 
+[✔️] Cada elemento tiene que tener un botón para eliminarlo.
+
 [✔️] Dar importancia a la funcionalidad y usabilidad, más que al diseño visual.
 
 [✔️] El código debe ser enteramente desarrollado en Typescript.
