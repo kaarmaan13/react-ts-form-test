@@ -29,3 +29,16 @@ form input {
   background-color: #1a1a1a;
   transition: border-color 0.25s;
 }
+
+section ul {
+  list-style: none;
+}
+
+section ul li {
+  padding: 5px 0;
+}
+section ul li button {
+  margin: 0 1em;
+  padding: 10px;
+  background-color: #2b0000;
+}
