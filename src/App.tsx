@@ -34,7 +34,7 @@ function App() {
 
     const isInput = input instanceof HTMLInputElement
 
-    if(!isInput || input == null) return
+    if (!isInput || input == null) return
 
     const newItem: Item = {
       id: crypto.randomUUID(),
@@ -69,24 +69,30 @@ function App() {
       </aside>
       <section>
         <h2>NOTAS:</h2>
-        <ul>
-          {
-            items.length === 0 ? 
+
+        {
+          items.length === 0 ? (
             <p>
               <strong>No hay elementos en la lista.</strong>
-            </p> :
-            items.map((item) => {
-              return (
-                <li key={item.id}>
-                  {item.text}
-                  <button onClick={createHandleRemoveItem(item.id)} title='Eliminar'>
-                    🗑️
-                  </button>
-                </li>
-              )
-            })
-          }
-        </ul>
+            </p>
+          ) : (
+            <ul>
+              {
+                items.map((item) => {
+                  return (
+                    <li key={item.id}>
+                      {item.text}
+                      <button onClick={createHandleRemoveItem(item.id)} title='Eliminar'>
+                        🗑️
+                      </button>
+                    </li>
+                  )
+                })
+              }
+            </ul>
+          )
+        }
+
       </section>
     </main>
   )
