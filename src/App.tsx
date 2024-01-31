@@ -9,22 +9,22 @@ interface Item {
   text: string
 }
 
-const INITIAL_NOTES: Item[] = [
-  {
-    id: crypto.randomUUID(),
-    timestamp: Date.now(),
-    text: 'Videojuegos 🎮'
-  },
-  {
-    id: crypto.randomUUID(),
-    timestamp: Date.now(),
-    text: 'Películas 🎞️'
-  }
-]
+// const INITIAL_NOTES: Item[] = [
+//   {
+//     id: crypto.randomUUID(),
+//     timestamp: Date.now(),
+//     text: 'Videojuegos 🎮'
+//   },
+//   {
+//     id: crypto.randomUUID(),
+//     timestamp: Date.now(),
+//     text: 'Películas 🎞️'
+//   }
+// ]
 
 function App() {
 
-  const [items, setItems] = useState(INITIAL_NOTES)
+  const [items, setItems] = useState<Item[]>([])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -42,7 +42,7 @@ function App() {
       text: input.value
     }
 
-    setItems((prevItems: Item[]) => {
+    setItems(prevItems => {
       return [...prevItems, newItem]
     })
 
@@ -51,7 +51,7 @@ function App() {
 
   const createHandleRemoveItem = (id: ItemID) => () => {
     setItems(prevItems => {
-      return prevItems.filter(currentItem => currentItem.id !== id)
+      return prevItems?.filter(currentItem => currentItem.id !== id)
     })
   }
 
@@ -59,7 +59,7 @@ function App() {
     <main>
       <h1>React Typescript NOTES</h1>
       <aside>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} aria-label='Añadir elementos a la lista'>
           <label>
             Elemento a introducir:
             <input type="text" required name='item' />
@@ -71,14 +71,14 @@ function App() {
         <h2>NOTAS:</h2>
 
         {
-          items.length === 0 ? (
+          items?.length === 0 ? (
             <p>
               <strong>No hay elementos en la lista.</strong>
             </p>
           ) : (
             <ul>
               {
-                items.map((item) => {
+                items?.map((item) => {
                   return (
                     <li key={item.id}>
                       {item.text}
