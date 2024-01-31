@@ -1,11 +1,9 @@
-import { type ItemID } from "../App";
-
 export function Item (
-    { id, text, handleRemove} :
-    { id: ItemID, text: string, handleRemove: () => void }
+    {  text, handleRemove} :
+    {  text: string, handleRemove: () => void }
   ) {
   return (
-    <li key={id}>
+    <li>
       {text}
       <button onClick={handleRemove} title='Eliminar'>
         🗑️

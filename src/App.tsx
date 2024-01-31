@@ -69,7 +69,7 @@ function App() {
             <ul>
               {
                 items.map((item) => {
-                  return <Item handleRemove={createHandleRemoveItem(item.id)} {...item} />
+                  return <Item key={item.id} handleRemove={createHandleRemoveItem(item.id)} {...item} />
                 })
               }
             </ul>
